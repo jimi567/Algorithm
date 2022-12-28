@@ -21,3 +21,4 @@ if __name__ == "__main__":
     for i in range(loop) :
         a, b = map(int, input().split())
         print(solution(a,b))
+        
