@@ -19,7 +19,7 @@ int main() {
 		for(auto c : s){
 			if (c == '-') {
 				if (cur != pw.begin()) cur = pw.erase(--cur); // erase 함수를 호출하면 무조건 iterator에 지운 다음 주소를 할당해줘야됨
-															// 이것때문에 다 푼 문제 1시간 고민했음 출력초과나서...
+									// 이것때문에 다 푼 문제 1시간 고민했음 출력초과나서...
 			}
 			else if (c == '<') {
 				if (cur != pw.begin())cur--;
