@@ -39,6 +39,6 @@ int main() {
 	if (stack != ArraySt) cout << "NO"; //st에서 만들어낸 수열이랑 원래 수열이랑 비교
 	else {
 		for (auto c : ans) cout << c << '\n'; //**** endl으로 바꾸면 시간초과가 난다..
-												// '\n'으로 줄바꿈하자.. endl은 출력버퍼를 비워야해서 느리다고한다
+						// '\n'으로 줄바꿈하자.. endl은 출력버퍼를 비워야해서 느리다고한다
 	}
 }
