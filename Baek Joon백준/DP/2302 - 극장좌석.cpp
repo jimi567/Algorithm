@@ -17,7 +17,7 @@ int main(void) {
         cin >> v;
         vips.push_back(v);
     }
-    dp[0] = 1;
+    dp[0] = 1; //왜 dp[0]을 1로해줄 필요가있는지는 생각해보자
     dp[1] = 1;
     dp[2] = 2;
     dp[3] = 3;
