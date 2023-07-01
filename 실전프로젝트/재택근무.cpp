@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 using ll = long long;
-#define fastIO ios::sync_with_stdio(0); cin.tie(0); cout.tie(0)
+#define fastIO ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
 #define endl '\n'
 #define X first
 #define Y second
