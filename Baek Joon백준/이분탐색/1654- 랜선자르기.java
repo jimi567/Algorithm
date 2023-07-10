@@ -22,6 +22,7 @@ public class Main {
             if(check(mid)) st = mid;
             else en = mid - 1;
         }
+        
         System.out.println(st);
     }
     static void input() throws IOException {
