@@ -1,3 +1,4 @@
+//재채점
 #include <bits/stdc++.h>
 using namespace std;
 int arr[100001]; // 수빈이가 해당 인덱스에 이동하는 최단 시간 기록
