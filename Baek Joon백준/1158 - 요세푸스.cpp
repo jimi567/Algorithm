@@ -31,7 +31,7 @@ int main() {
 	cout << *it << ">" << endl;
 	return 0;
 }
-// 다른 사람풀이 큐를 활용해 더 직관적으로 풀었음 
+// 다른 사람풀이 큐를 활용해 더 직관적으로 풀었음 맛있는 풀이 자료구조의 특징이랑 문제의 요구사항을 잘 연관지을필요성이있다.
 #include <iostream>
 #include <queue>
 using namespace std;
