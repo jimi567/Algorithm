@@ -2,6 +2,7 @@
 using namespace std;
 #define X first
 #define Y second
+
 #define ll long long
 int dx[8] = { 1,0,-1,0,1,-1,1,-1 };
 int dy[8] = { 0,1,0,-1,1,-1,-1,1 };
