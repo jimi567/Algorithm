@@ -117,3 +117,101 @@ int main() {
     
     return 0;
 }
+
+//bfs 사용x 코드 간략하게함 , flag를 통해 간단한 로직으로 경계 내부 채움
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+#define fastIO ios::sync_with_stdio(0); cin.tie(0); cout.tie(0)
+#define endl '\n'
+#define X first
+#define Y second
+
+int n;
+int arr[22][22];
+int area[22][22];
+
+void SetArea(int a, int b, int c, int d,int k) {
+
+    for (int i = a;i <= b;i++) {
+        for (int j = c;j <= d;j++) {
+            if (area[i][j] != 0) continue;
+            area[i][j] = k;
+        }
+    }
+}
+
+int getDiff(int x, int y, int d1, int d2) {
+    
+    memset(area, 0, sizeof(area));
+
+    int sum[5] = { 0, };
+    //경계선 긋기
+    for (int i = 0;i <= d1;i++) {
+        area[x + i][y - i] = 5;
+    }
+    for (int i = 0; i <= d2;i++) {
+        area[x + i][y + i] = 5;
+    }
+    for (int i = 0;i <= d2;i++) {
+        area[x + d1 + i][y - d1 + i] = 5;
+    }
+    for (int i = 0;i <= d1;i++) {
+        area[x + d2 + i][y + d2 - i] = 5;
+    }
+    //경계선 내부 채우기
+  
+    for (int i = x+1;i < x + d1 + d2;i++) { //첫번째 맨끝 제외
+        bool flag = 0; //바운더리 내부에서만 트루
+        for (int j = y - d1;j <= y + d2;j++) {
+            if (area[i][j] == 5) {
+                if (!flag) flag = 1;
+                else flag = 0;
+            }
+            if (flag) area[i][j] = 5;
+        }
+    }
+    
+    
+    //1~4구역 셋팅
+    SetArea(1, x + d1 - 1, 1, y, 1);
+    SetArea(1, x + d2, y - 1, n, 2);
+    SetArea(x + d1, n, 1, y - d1 + d2 - 1, 3);
+    SetArea(x + d2 - 1, n, y - d1 + d2, n, 4);
+    
+    //인구수 구하기
+    for (int i = 1;i <= n;i++) {
+        for (int j = 1;j <= n;j++) {
+             sum[area[i][j] - 1] += arr[i][j];
+        }
+    }
+    int mn = *min_element(sum, sum + 5);
+    int mx = *max_element(sum, sum + 5);
+
+    return mx - mn;
+
+}
+
+int main() {
+    fastIO;
+    cin >> n;
+    for (int i = 1;i <= n;i++) {
+        for (int j = 1;j <= n;j++) cin >> arr[i][j];
+    }
+
+    int ans = 0x7f7f7f7f;
+    
+    for (int x = 1;x <= n;x++) {
+        for (int y = 1;y <= n;y++) {
+            for (int d1 = 1; x + d1 < n && 1 <= y-d1 && y-d1 < y; d1++) {
+                for (int d2 = 1; x + d1 + d2<=n && y + d2 > y && y + d2 <= n;d2++)
+
+                   ans = min(ans, getDiff(x, y, d1, d2));
+
+            }
+        }
+    }
+    cout << ans << endl;
+    
+    return 0;
+}
