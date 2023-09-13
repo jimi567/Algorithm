@@ -40,3 +40,55 @@ int main(void) {
     }
 
 }
+//s a
+#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+#define fastIO ios::sync_with_stdio(0); cin.tie(0); cout.tie(0)
+#define endl '\n'
+#define X first
+#define Y second
+
+int tc;
+
+int n, m, d;
+string maps[202];
+bool vis[202][202];
+
+int dx[3] = { 0,0,-1 };
+int dy[3] = { 1,-1,0 };
+
+int main() {
+    fastIO;
+    
+    cin >> tc;
+
+    while (tc--) {
+        cin >> n >> m >> d;
+
+        cin.ignore();
+
+        for (int i = 0;i < m;i++) {
+            getline(cin, maps[i]);
+        }
+        memset(vis, false, sizeof(vis));
+        pair<int, int> pos = { m - 1,2 * (d - 1) };
+
+        while (pos.X != 0) {
+            for (int i = 0;i < 3;i++) {
+                int nx = pos.X + dx[i];
+                int ny = pos.Y + dy[i];
+                if (nx < 0 || nx >= m || ny < 0 || ny >= 2 * n - 1)continue;
+                if (vis[nx][ny]) continue;
+                if (maps[nx][ny] != '+') continue;
+                pos = { nx,ny };
+                vis[nx][ny] = 1;
+                break;
+            }
+        }
+        cout << (pos.Y + 2) / 2 << endl;
+
+    }
+    
+    return 0;
+}
