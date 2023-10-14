@@ -1,3 +1,4 @@
+//실프에도 있는 문제;; 1시간안에 못풀었는데;;
 #include <bits/stdc++.h>
 using namespace std;
 #define X first
@@ -16,7 +17,7 @@ int main(void) {
     cin >> pos.X >> pos.Y >> dir;
     for (int i = 0; i < r; i++)
         for (int j = 0; j < c; j++) cin >> area[i][j];
-
+    
     queue<pair<int, int>> q;
     int cnt = 0;
     q.push(pos);
