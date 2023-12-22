@@ -1,3 +1,5 @@
+//gcd 수학 문제 어려움 
+
 #include <bits/stdc++.h>
 using namespace std;
 #define X first
