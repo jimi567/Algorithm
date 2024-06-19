@@ -6,7 +6,7 @@ int n;
 int arr[31][31];
 int vis[31][31];
 int pre[31][31];
-/////이것도 못푸는 병신입니다 저는
+
 int solution(vector<vector<int>> board) {
     int n = board.size();
     for(int i=0;i<n;i++){
